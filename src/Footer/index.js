@@ -13,7 +13,7 @@ export default function Footer() {
                 color: "#ffffff",
                 fontWeight: "bold"
             }}>
-            Made from ❤️ using SuperTokens.io
+            React Demo app. Made with ❤️ using SuperTokens.io
         </div>
     );
 }
