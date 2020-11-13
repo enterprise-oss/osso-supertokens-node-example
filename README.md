@@ -20,14 +20,20 @@ npm install
 
 ## Run the demo app
 
-### Compile and hot-reload for development
-
 This compiles and serves the React app and starts the backend API server on port 3001.
 
 ```bash
 npm run dev
 ```
 The app will start on `http://localhost:3000`
+
+## Project structure & Parameters
+- The frontend code is located in the `src` folder.
+- The backend API is in the `api-server.js` file.
+- You can provide the following params to the `npm run` commands:
+   - `API_PORT`: To change the port for the API. The default is `3001`
+   - `WEBSITE_PORT`: To change the port of the website server. The default is `3000`
+   - `WEBSITE_URL`: In case the the website is not hosted on `localhost`. This must contain the port as well.
 
 ## Deployment
 
@@ -37,18 +43,10 @@ The app will start on `http://localhost:3000`
 npm run build
 ```
 
-## Running in production
+### Running in production
 ```bash
 npm run prod
 ```
-
-## Project structure & Parameters
-- The frontend code is located in the `src` folder.
-- The backend API is in the `api-server.js` file.
-- You can provide the following params to the `npm run` commands:
-   - `API_PORT`: To change the port for the API. The default is `3001`
-   - `WEBSITE_PORT`: To change the port of the website server. The default is `3000`
-   - `WEBSITE_URL`: In case the the website is not hosted on `localhost`. This must contain the port as well.
 
 ## Author
 
