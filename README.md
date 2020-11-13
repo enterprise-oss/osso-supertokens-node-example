@@ -42,6 +42,14 @@ npm run build
 npm run prod
 ```
 
+## Project structure & Parameters
+- The frontend code is located in the `src` folder.
+- The backend API is in the `api-server.js` file.
+- You can provide the following params to the `npm run` commands:
+   - `API_PORT`: To change the port for the API. The default is `3001`
+   - `WEBSITE_PORT`: To change the port of the website server. The default is `3000`
+   - `WEBSITE_URL`: In case the the website is not hosted on `localhost`. This must contain the port as well.
+
 ## Author
 
 Created with :heart: by the folks at SuperTokens.io.
