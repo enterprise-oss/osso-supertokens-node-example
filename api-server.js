@@ -37,11 +37,10 @@ app.use(cors({
 
 app.use(morgan("dev"));
 app.use(helmet());
-app.use(cors({ origin: websiteUrl }));
 app.use(supertokens.middleware());
 
 // TODO: Custom route
 
-app.use(supertokens.errorHandler())
+app.use(supertokens.errorHandler());
 
 app.listen(port, () => console.log(`API Server listening on port ${port}`));
