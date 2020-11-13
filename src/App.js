@@ -4,6 +4,7 @@ import EmailPassword from "supertokens-auth-react/recipe/emailpassword";
 import Session from "supertokens-auth-react/recipe/session";
 import Home from "./Home";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import Footer from "./Footer";
 
 SuperTokens.init({
   appInfo: {
@@ -19,16 +20,20 @@ SuperTokens.init({
 
 
 function App() {
-
   return (
-    <Router>
-      <Switch>
-        {getSuperTokensRoutesForReactRouterDom()}
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+    <div className="App">
+      <Router>
+        <div className="fill">
+          <Switch>
+            {getSuperTokensRoutesForReactRouterDom()}
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+        <Footer />
+      </Router >
+    </div>
   );
 }
 
