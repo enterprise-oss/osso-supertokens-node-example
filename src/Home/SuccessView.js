@@ -1,4 +1,4 @@
-import '../App.css';
+import CallAPIView from "./CallAPIView";
 
 export default function SuccessView(props) {
     let userId = props.userId;
@@ -13,8 +13,8 @@ export default function SuccessView(props) {
                 textAlign: "center",
                 fontWeight: "bold",
                 color: "#333333",
-                paddingTop: "20px",
-                paddingBottom: "20px"
+                paddingTop: "10px",
+                paddingBottom: "40px"
             }}>
 
             <span
@@ -26,7 +26,9 @@ export default function SuccessView(props) {
             <br />
             <br />
             Your user ID is<br />{userId}
-            <br /><br /><br />
+            <br /><br />
+            <CallAPIView />
+            <br />
             ------------------------------------
             <br /><br /><br />
             <a href="https://github.com/supertokens/supertokens-demo-react" target="_blank">View the code on GitHub</a>

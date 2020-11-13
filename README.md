@@ -32,8 +32,9 @@ The app will start on `http://localhost:3000`
 - The backend API is in the `api-server.js` file.
 - You can provide the following params to the `npm run` commands:
    - `API_PORT`: To change the port for the API. The default is `3001`
+   - `API_URL`: In case the API is not hosted on `localhost`. This must contain the port as well.
    - `WEBSITE_PORT`: To change the port of the website server. The default is `3000`
-   - `WEBSITE_URL`: In case the the website is not hosted on `localhost`. This must contain the port as well.
+   - `WEBSITE_URL`: In case the website is not hosted on `localhost`. This must contain the port as well.
 
 ## Deployment
 

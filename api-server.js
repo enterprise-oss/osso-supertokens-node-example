@@ -6,7 +6,8 @@ let supertokens = require("supertokens-node");
 let Session = require("supertokens-node/recipe/session");
 let EmailPassword = require("supertokens-node/recipe/emailpassword");
 
-const port = process.env.API_PORT || 3001;
+const apiPort = process.env.API_PORT || 3001;
+const apiUrl = process.env.API_URL || `http://localhost:${apiPort}`;
 const websitePort = process.env.WEBSITE_PORT || 3000;
 const websiteUrl = process.env.WEBSITE_URL || `http://localhost:${websitePort}`;
 
@@ -16,7 +17,7 @@ supertokens.init({
     },
     appInfo: {
         appName: "SuperTokens Demo App",
-        apiDomain: "http://localhost:" + port,
+        apiDomain: apiUrl,
         websiteDomain: websiteUrl
     },
     recipeList: [
@@ -39,8 +40,18 @@ app.use(morgan("dev"));
 app.use(helmet());
 app.use(supertokens.middleware());
 
-// TODO: Custom route
+// custom API that requires session verification
+app.get("/sessioninfo", Session.verifySession(), async (req, res) => {
+    let session = req.session;
+    res.send({
+        sessionHandle: session.getHandle(),
+        userId: session.getUserId(),
+        jwtPayload: session.getJWTPayload(),
+        sessionData: await session.getSessionData(),
+    });
+});
+
 
 app.use(supertokens.errorHandler());
 
-app.listen(port, () => console.log(`API Server listening on port ${port}`));
+app.listen(apiPort, () => console.log(`API Server listening on port ${apiPort}`));

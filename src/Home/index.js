@@ -1,4 +1,3 @@
-import '../App.css';
 import React, { useState, useEffect } from 'react';
 import Logout from "./Logout";
 import SuccessView from "./SuccessView";
