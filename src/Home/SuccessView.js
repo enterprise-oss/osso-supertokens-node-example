@@ -21,16 +21,23 @@ export default function SuccessView(props) {
                 style={{
                     fontSize: "50px"
                 }}>🥳🎉</span>
-            <br />
             Login successful
-            <br />
-            <br />
-            Your user ID is<br />{userId}
-            <br /><br />
+            <div style={{ height: "10px" }} />
+            <div style={{ height: "10px" }} />
+            Your user ID is<div />{userId}
+            <div style={{ height: "10px" }} />
+            <div style={{ height: "10px" }} />
+            <div style={{ height: "10px" }} />
+            <div style={{ height: "10px" }} />
             <CallAPIView />
-            <br />
-            ------------------------------------
-            <br /><br /><br />
+            <div style={{ height: "10px" }} />
+            <div style={{ height: "10px" }} />
+            <div style={{ height: "10px" }} />
+                ------------------------------------
+            <div style={{ height: "10px" }} />
+            <div style={{ height: "10px" }} />
+            <div style={{ height: "10px" }} />
+            <div style={{ height: "10px" }} />
             <a href="https://github.com/supertokens/supertokens-demo-react" target="_blank">View the code on GitHub</a>
         </div>
     );
