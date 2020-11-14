@@ -1,16 +1,13 @@
 import axios from "axios";
-import { useEffect } from "react";
 import Session from "supertokens-auth-react/recipe/session";
 import { useHistory } from "react-router-dom";
+Session.addAxiosInterceptors(axios);
 
 const apiPort = process.env.API_PORT || 3001;
 const apiUrl = process.env.API_URL || `http://localhost:${apiPort}`;
 
 export default function CallAPIView() {
     const history = useHistory();
-    useEffect(() => {
-        Session.addAxiosInterceptors(axios);
-    }, []);
 
     async function callAPIClicked() {
         // this will also automatically refresh the session if needed
