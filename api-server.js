@@ -7,9 +7,9 @@ let Session = require("supertokens-node/recipe/session");
 let EmailPassword = require("supertokens-node/recipe/emailpassword");
 
 const apiPort = process.env.API_PORT || 3001;
-const apiUrl = process.env.API_URL || `http://localhost:${apiPort}`;
+const apiDomain = process.env.API_URL || `http://localhost:${apiPort}`;
 const websitePort = process.env.WEBSITE_PORT || 3000;
-const websiteUrl = process.env.WEBSITE_URL || `http://localhost:${websitePort}`;
+const websiteDomain = process.env.WEBSITE_URL || `http://localhost:${websitePort}`
 
 supertokens.init({
     supertokens: {
@@ -17,8 +17,8 @@ supertokens.init({
     },
     appInfo: {
         appName: "SuperTokens Demo App",
-        apiDomain: apiUrl,
-        websiteDomain: websiteUrl
+        apiDomain,
+        websiteDomain
     },
     recipeList: [
         EmailPassword.init(),
@@ -30,7 +30,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: websiteUrl,
+    origin: websiteDomain,
     allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
     methods: ["GET", "PUT", "POST", "DELETE"],
     credentials: true,
