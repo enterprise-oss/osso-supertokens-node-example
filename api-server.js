@@ -13,7 +13,7 @@ const websiteUrl = process.env.WEBSITE_URL || `http://localhost:${websitePort}`;
 
 supertokens.init({
     supertokens: {
-        connectionURI: "http://localhost:3567",
+        connectionURI: "https://try.supertokens.io",
     },
     appInfo: {
         appName: "SuperTokens Demo App",
