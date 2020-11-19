@@ -6,16 +6,23 @@ import Home from "./Home";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import Footer from "./Footer";
 
-const apiPort = process.env.API_PORT || 3001;
-const apiDomain = process.env.API_URL || `http://localhost:${apiPort}`;
-const websitePort = process.env.WEBSITE_PORT || 3000;
-const websiteDomain = process.env.WEBSITE_URL || `http://localhost:${websitePort}`;
+export function getApiDomain() {
+  const apiPort = process.env.REACT_APP_API_PORT || 3001;
+  const apiUrl = process.env.REACT_APP_API_URL || `http://localhost:${apiPort}`;
+  return apiUrl;
+}
+
+export function getWebsiteDomain() {
+  const websitePort = process.env.REACT_APP_WEBSITE_PORT || 3000;
+  const websiteUrl = process.env.REACT_APP_WEBSITE_URL || `http://localhost:${websitePort}`;
+  return websiteUrl;
+}
 
 SuperTokens.init({
   appInfo: {
     appName: "SuperTokens Demo App",
-    apiDomain,
-    websiteDomain
+    apiDomain: getApiDomain(),
+    websiteDomain: getWebsiteDomain()
   },
   recipeList: [
     EmailPassword.init(),

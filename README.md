@@ -31,10 +31,10 @@ The app will start on `http://localhost:3000`
 - The frontend code is located in the `src` folder.
 - The backend API is in the `api-server.js` file.
 - You can provide the following params to the `npm run` commands:
-   - `API_PORT`: To change the port for the API. The default is `3001`
-   - `API_URL`: In case the API is not hosted on `localhost`. This must contain the port as well.
-   - `WEBSITE_PORT`: To change the port of the website server. The default is `3000`
-   - `WEBSITE_URL`: In case the website is not hosted on `localhost`. This must contain the port as well.
+   - `REACT_APP_API_PORT`: To change the port for the API. The default is `3001`
+   - `REACT_APP_API_URL`: In case the API is not hosted on `localhost`. This must contain the port as well.
+   - `REACT_APP_WEBSITE_PORT`: To change the port of the website server. The default is `3000`
+   - `REACT_APP_WEBSITE_URL`: In case the website is not hosted on `localhost`. This must contain the port as well.
 
 ## Deployment
 
