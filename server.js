@@ -11,7 +11,9 @@ const websitePort = process.env.REACT_APP_WEBSITE_PORT || 3000;
 const websiteUrl = process.env.REACT_APP_WEBSITE_URL || `http://localhost:${websitePort}`;
 
 app.use(morgan("dev"));
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: false,
+}));
 app.use(express.static(join(__dirname, "build")));
 
 app.use("*", (req, res) => {

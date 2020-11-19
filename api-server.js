@@ -37,7 +37,9 @@ app.use(cors({
 }));
 
 app.use(morgan("dev"));
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: false,
+}));
 app.use(supertokens.middleware());
 
 // custom API that requires session verification
