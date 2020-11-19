@@ -14,6 +14,7 @@ jobs:
           command: |
             ssh ubuntu@ssh.supertokens.io '\
               cd /home/ubuntu/supertokens-demo-react && \
+              git reset --hard && \
               git checkout master && \
               git pull && \
               git checkout `git describe --match "[0-9]*" --abbrev=0 --tags $(git rev-list --tags --max-count=1)` && \
