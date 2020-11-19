@@ -13,6 +13,7 @@ export default function CallAPIView() {
             let response = await axios.get(getApiDomain() + "/sessioninfo");
             window.alert("Session Information:\n" + JSON.stringify(response.data, null, 2))
         } catch (err) {
+            console.log(err);
             if (err.response.status === 401) {
                 window.alert("Oops! Your session has expired!");
                 history.push("/auth");
