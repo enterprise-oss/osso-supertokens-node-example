@@ -25,7 +25,7 @@
   "scripts": {
     "start": "npm-run-all --parallel spa api-server",
     "spa": "react-scripts start",
-    "build": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "build": "cross-env INLINE_RUNTIME_CHUNK=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "api-server": "node api-server.js",
