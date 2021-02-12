@@ -1,6 +1,6 @@
 import './App.css';
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react"
-import EmailPassword from "supertokens-auth-react/recipe/emailpassword";
+import ThirdParty, {ThirdPartyAuth, Google, Github, Facebook} from "supertokens-auth-react/recipe/thirdparty";
 import Session from "supertokens-auth-react/recipe/session";
 import Home from "./Home";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
@@ -25,7 +25,14 @@ SuperTokens.init({
     websiteDomain: getWebsiteDomain()
   },
   recipeList: [
-    EmailPassword.init({
+    ThirdParty.init({
+      signInAndUpFeature: {
+        providers: [
+          Github.init(),
+          Google.init(),
+          Facebook.init()
+        ]
+      },
       emailVerificationFeature: {
         mode: "REQUIRED"
       }
@@ -43,9 +50,9 @@ function App() {
           <Switch>
             {getSuperTokensRoutesForReactRouterDom()}
             <Route path="/">
-              <EmailPassword.EmailPasswordAuth>
+              <ThirdPartyAuth>
                 <Home />
-              </EmailPassword.EmailPasswordAuth>
+              </ThirdPartyAuth>
             </Route>
           </Switch>
         </div>
