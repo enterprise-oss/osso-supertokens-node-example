@@ -4,10 +4,8 @@
 # SuperTokens Demo app
 
 This demo app demonstrates the following use cases:
-- Login
-- Sign up
+- Social Login / Sign up
 - Logout
-- Forgot password flow
 - Session management & Calling APIs
 
 ## Project setup
