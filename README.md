@@ -18,7 +18,7 @@ npm install
 
 # Providers credentials
 
-Copy the `.env.example` file: 
+Copy the `.env.example` file and add your credentials:
 
 ```bash
    cp .env.example .env
@@ -30,7 +30,7 @@ Please refer to the corresponding documentations to get your client ids and clie
   - <a href="https://developers.facebook.com/docs/development/create-an-app" rel="noopener noreferrer" target="_blank" >Facebook</a><br/>
 </div>
 
-Set redirect URI to `http://localhost:3000/auth/callback/{providerId} in each developer panels.
+Set redirect URI to http://localhost:3000/auth/callback/{providerId} in each developer panels (make sure to replace `providerId` with `google | facebook | github`).
 
 ## Run the demo app
 
