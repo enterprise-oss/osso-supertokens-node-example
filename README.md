@@ -21,7 +21,7 @@ npm install
 Copy the `.env.example` file: 
 
 ```bash
-   cp .env.example .env.development.local
+   cp .env.example .env
 ```
 
 Please refer to the corresponding documentations to get your client ids and client secrets for each of the providers you want to integrate with:<br/>
