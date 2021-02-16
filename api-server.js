@@ -12,8 +12,6 @@ const apiDomain = process.env.REACT_APP_API_URL || `http://localhost:${apiPort}`
 const websitePort = process.env.REACT_APP_WEBSITE_PORT || 3000;
 const websiteDomain = process.env.REACT_APP_WEBSITE_URL || `http://localhost:${websitePort}`
 
-console.log("WEBSITE DOMAIN:", websiteDomain);
-
 supertokens.init({
     supertokens: {
         connectionURI: "https://try.supertokens.io",
