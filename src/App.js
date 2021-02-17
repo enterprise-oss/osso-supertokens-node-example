@@ -1,6 +1,6 @@
 import './App.css';
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react"
-import ThirdParty, {ThirdPartyAuth, Google, Github, Facebook} from "supertokens-auth-react/recipe/thirdparty";
+import ThirdParty, { ThirdPartyAuth, Google, Github, Facebook } from "supertokens-auth-react/recipe/thirdparty";
 import Session from "supertokens-auth-react/recipe/session";
 import Home from "./Home";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
@@ -30,7 +30,9 @@ SuperTokens.init({
         providers: [
           Github.init(),
           Google.init(),
-          Facebook.init()
+
+          // we have commented the below because our app domain (thirdparty.demo.supertokens.io) is not approved by Facebook since it's only a demo app.
+          // Facebook.init()
         ]
       },
       emailVerificationFeature: {

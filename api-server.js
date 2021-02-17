@@ -33,10 +33,12 @@ supertokens.init({
                         clientSecret: process.env.GITHUB_CLIENT_SECRET,
                         clientId: process.env.GITHUB_CLIENT_ID
                     }),
-                    ThirdParty.Facebook({
-                        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-                        clientId: process.env.FACEBOOK_CLIENT_ID
-                    })
+
+                    // we have commented the below because our app domain (thirdparty.demo.supertokens.io) is not approved by Facebook since it's only a demo app.
+                    // ThirdParty.Facebook({
+                    //     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+                    //     clientId: process.env.FACEBOOK_CLIENT_ID
+                    // })
                 ]
             }
         }),
