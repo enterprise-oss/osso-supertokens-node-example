@@ -1,3 +1,4 @@
+const axios = require("axios");
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -14,7 +15,8 @@ const websiteDomain = process.env.REACT_APP_WEBSITE_URL || `http://localhost:${w
 
 supertokens.init({
     supertokens: {
-        connectionURI: "https://try.supertokens.io",
+        connectionURI: "https://83e0ff21749211eba43deb411ffd74cf-us-east-1.aws.supertokens.io:3573",
+        apiKey: "UfvsE6fuxUymh29gx-6QOtESfMGnQs"
     },
     appInfo: {
         appName: "SuperTokens Demo App",
@@ -25,20 +27,53 @@ supertokens.init({
         ThirdParty.init({
             signInAndUpFeature: {
                 providers: [
-                    ThirdParty.Google({
-                        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-                        clientId: process.env.GOOGLE_CLIENT_ID
-                    }),
                     ThirdParty.Github({
                         clientSecret: process.env.GITHUB_CLIENT_SECRET,
                         clientId: process.env.GITHUB_CLIENT_ID
                     }),
-
-                    // we have commented the below because our app domain (thirdparty.demo.supertokens.io) is not approved by Facebook since it's only a demo app.
-                    // ThirdParty.Facebook({
-                    //     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-                    //     clientId: process.env.FACEBOOK_CLIENT_ID
-                    // })
+                    {
+                        id: "osso",
+                        get: async (redirectURI, authCodeFromRequest) => {
+                            return {
+                                accessTokenAPI: {
+                                    url: `${process.env.OSSO_BASE_URL}/oauth/token`,
+                                    params: {
+                                        client_id:  process.env.OSSO_CLIENT_ID,
+                                        client_secret:  process.env.OSSO_CLIENT_SECRET,
+                                        grant_type: "authorization_code",
+                                        redirect_uri: redirectURI,
+                                        code: authCodeFromRequest,
+                                    }
+                                },
+                                authorisationRedirect: {
+                                    url: `${process.env.OSSO_BASE_URL}/oauth/authorize`,
+                                    params: {
+                                        client_id: process.env.OSSO_CLIENT_ID,
+                                        response_type: "code",
+                                        // email: 'sam@example.com'
+                                    }
+                                },
+                                getProfileInfo: async (accessTokenAPIResponse) => {
+                                    let authHeader = `Bearer ${accessTokenAPIResponse.access_token}`;
+                                    let response = await axios({
+                                        method: "get",
+                                        url: `${process.env.OSSO_BASE_URL}/oauth/me`,
+                                        headers: {
+                                            Authorization: authHeader,
+                                        },
+                                    });
+                                   
+                                    return {
+                                        id: response.data.id,
+                                        email: {
+                                            id: response.data.email, // emailID
+                                            isVerified: true,
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 ]
             }
         }),
