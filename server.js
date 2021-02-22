@@ -9,10 +9,9 @@ let Session = require("supertokens-node/recipe/session");
 let ThirdParty = require("supertokens-node/recipe/thirdparty");
 const { join } = require("path");
 
-const apiPort = process.env.REACT_APP_API_PORT || 3000;
-const apiDomain = process.env.REACT_APP_API_URL || `http://localhost:${apiPort}`;
-const websitePort = process.env.REACT_APP_WEBSITE_PORT || 3000;
-const websiteDomain = process.env.REACT_APP_WEBSITE_URL || `http://localhost:${websitePort}`
+const port = process.env.PORT || 3001;
+const apiDomain = process.env.REACT_APP_API_URL || `http://localhost:${port}`;
+const websiteDomain = process.env.REACT_APP_WEBSITE_URL || `http://localhost:3000`
 
 supertokens.init({
     supertokens: {
@@ -116,4 +115,4 @@ app.use((err, req, res, next) => {
     res.status(500).send("Internal error: " + err.message);
 })
 
-app.listen(apiPort, () => console.log(`API Server listening on port ${apiPort}`));
+app.listen(port, () => console.log(`API Server listening on port ${port}`));

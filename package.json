@@ -24,18 +24,12 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "start": "npm-run-all --parallel spa api-server",
+    "start": "npm-run-all --parallel spa server",
     "spa": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "api-server": "node api-server.js",
-    "api-server:dev": "nodemon api-server.js",
     "server": "node server.js",
     "server:dev": "nodemon server.js",
-    "dev": "npm-run-all --parallel spa api-server:dev",
-    "prod": "npm-run-all --parallel server api-server",
-    "release": "bash -c './scripts/release.sh'"
+    "dev": "npm-run-all --parallel spa server:dev"
   },
   "eslintConfig": {
     "extends": [
