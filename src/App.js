@@ -28,16 +28,12 @@ SuperTokens.init({
     ThirdParty.init({
       signInAndUpFeature: {
         providers: [
-          Github.init(),
           {
             id: "osso",
             name: "SAML SSO"
         }
         ]
       },
-      // emailVerificationFeature: {
-      //   mode: "REQUIRED"
-      // }
     }),
     Session.init()
   ]
