@@ -12,7 +12,7 @@ This demo app shows how to integrate Osso in a Node and React app that uses Supe
 
 You'll need an Osso instance which you can [self-host](https://ossoapp.com/docs/deploy/overview) or [purchase as a SaaS subscription](https://ossoapp.com/pricing). You can also utilize Osso's [Demo Instance](https://demo.ossoapp.com) for testing - `.env.example` includes variables for working with the Osso demo instance.
 
-You'll also need a SuperTokens instance, which you can also self-host or purchase a SaaS subscription. If you've found this project we assume you are already familiar with SuperTokens.
+You'll also need a SuperTokens instance, which you can also self-host or purchase a SaaS subscription. If you've found this project we assume you are already familiar with SuperTokens. The demo app is configured to use the SuperTokens demo instance at `try.supertokens.io`
 
 ## Project setup
 
