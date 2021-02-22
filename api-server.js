@@ -26,10 +26,6 @@ supertokens.init({
         ThirdParty.init({
             signInAndUpFeature: {
                 providers: [
-                    ThirdParty.Github({
-                        clientSecret: process.env.GITHUB_CLIENT_SECRET,
-                        clientId: process.env.GITHUB_CLIENT_ID
-                    }),
                     {
                         id: "osso",
                         get: async (redirectURI, authCodeFromRequest) => {
