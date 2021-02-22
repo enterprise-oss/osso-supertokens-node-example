@@ -7,8 +7,9 @@ require('dotenv').config();
 let supertokens = require("supertokens-node");
 let Session = require("supertokens-node/recipe/session");
 let ThirdParty = require("supertokens-node/recipe/thirdparty");
+const { join } = require("path");
 
-const apiPort = process.env.REACT_APP_API_PORT || 3001;
+const apiPort = process.env.REACT_APP_API_PORT || 3000;
 const apiDomain = process.env.REACT_APP_API_URL || `http://localhost:${apiPort}`;
 const websitePort = process.env.REACT_APP_WEBSITE_PORT || 3000;
 const websiteDomain = process.env.REACT_APP_WEBSITE_URL || `http://localhost:${websitePort}`
@@ -104,6 +105,12 @@ app.get("/sessioninfo", Session.verifySession(), async (req, res) => {
 });
 
 app.use(supertokens.errorHandler());
+
+app.use(express.static(join(__dirname, "build")));
+
+app.use("/", (req, res) => {
+    res.sendFile(join(__dirname, "build/index.html"));
+})
 
 app.use((err, req, res, next) => {
     res.status(500).send("Internal error: " + err.message);

@@ -7,7 +7,7 @@ import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import Footer from "./Footer";
 
 export function getApiDomain() {
-  const apiPort = process.env.REACT_APP_API_PORT || 3001;
+  const apiPort = process.env.REACT_APP_API_PORT || 3000;
   const apiUrl = process.env.REACT_APP_API_URL || `http://localhost:${apiPort}`;
   return apiUrl;
 }
