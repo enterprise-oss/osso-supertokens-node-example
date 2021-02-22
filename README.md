@@ -65,7 +65,7 @@ npm run build
 
 ### Live demo
 
-A live demo is available at <https://supertokens-example.ossoapp.com>.
+A live demo is available at <https://supertokens-demo.ossoapp.com>.
 
 ### Running in production
 
